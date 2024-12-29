@@ -20,7 +20,6 @@ app.use(express.json({ extended: false }));
 app.use(cors());  // Use the cors middleware
 // Initialize Passport
 app.use(passport.initialize());
-app.use(passport.session());  // For session support, optional
 
 // Define Routes
 app.use('/api/auth', authRoutes); // Authentication routes
