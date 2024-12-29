@@ -5,7 +5,7 @@ const authController = require('../controllers/authController');
 const authMiddleware = require('../middleware/authMiddleware');
 const User = require('../models/User');
 const passport = require('passport');
-
+require('../config/passport'); 
 // Register a new user
 router.post('/register', [
     check('name', 'Name is required').not().isEmpty(),
