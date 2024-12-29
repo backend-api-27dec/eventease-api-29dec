@@ -43,8 +43,6 @@ passport.use(new GoogleStrategy({
 
       console.log('Generated JWT token:', token);
 
-      // Send welcome email
-      sendWelcomeEmail(user, req);
 
       return done(null, user);
     } catch (err) {
