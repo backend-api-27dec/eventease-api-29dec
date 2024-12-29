@@ -6,7 +6,6 @@ const authMiddleware = require('./middleware/authMiddleware');
 const cors = require('cors');  // Importing cors middleware
 require('dotenv').config();  // Load .env variables
         const session = require('express-session');
-
 const passport = require('./config/passport');  // Import passport configuration
 
 const app = express();
