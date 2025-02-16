@@ -8,7 +8,7 @@ const Event = require('../models/Event');
 // @route   POST api/events
 // @desc    Create a new event
 // @access  Private
-router.post('/', 
+router.post('/create', 
     auth, // Middleware to verify authentication
     [
         check('eventName', 'Event name is required').not().isEmpty(),
