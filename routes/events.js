@@ -10,11 +10,11 @@ const Event = require('../models/Event');
 // @access  Private
 router.post('/create', 
     auth, // Middleware to verify authentication
-    [
-        check('eventName', 'Event name is required').not().isEmpty(),
+     [
+        check('title', 'Event name is required').not().isEmpty(),
         check('eventType', 'Event type is required').not().isEmpty(),
-        check('startDate', 'Start date is required').not().isEmpty(),
-        check('endDate', 'End date is required').not().isEmpty()
+        check('date', 'Start date is required').not().isEmpty(),
+        check('date', 'End date is required').not().isEmpty()
     ],
     async (req, res) => {
         console.log('POST /api/events - Request received:', req.body);
@@ -26,16 +26,16 @@ router.post('/create',
 
         try {
             const newEvent = new Event({
-                eventName: req.body.eventName,
-                eventType: req.body.eventType,
-                startDate: req.body.startDate,
-                endDate: req.body.endDate,
-                description: req.body.description,
-                handledBy: req.body.handledBy,
-                organisation: req.body.organisation,
-                totalSubEvents: req.body.totalSubEvents,
-                user: req.user.id // Associate the event with the logged-in user
-            });
+    eventName: req.body.title,
+    eventType: 'General', 
+    startDate: req.body.date,
+    endDate: req.body.date, 
+    description: req.body.description,
+    handledBy: req.body.participants ? req.body.participants.join(', ') : '',
+    organisation: 'Your Org', 
+    totalSubEvents: 1,  
+    user: req.user.id
+});
 
             console.log('New Event object created:', newEvent);
 
