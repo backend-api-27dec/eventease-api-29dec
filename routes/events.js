@@ -12,7 +12,6 @@ router.post('/create',
     auth, // Middleware to verify authentication
      [
         check('title', 'Event name is required').not().isEmpty(),
-        check('eventType', 'Event type is required').not().isEmpty(),
         check('date', 'Start date is required').not().isEmpty(),
         check('date', 'End date is required').not().isEmpty()
     ],
